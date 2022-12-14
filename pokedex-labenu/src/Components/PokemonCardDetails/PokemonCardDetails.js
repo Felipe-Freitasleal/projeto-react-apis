@@ -17,24 +17,31 @@ function PokemonCardDetails() {
       <Stack
         borderWidth="1px"
         borderRadius="lg"
-        w={{ sm: '100%', md: '640px' }}
-        height={{ sm: '476px', md: '30rem' }}
-        direction={{ base: 'column', md: 'row' }}
-        bg={useColorModeValue('white', 'gray.900')}
+        w={{ sm: '100%', md: '1040px' }}
+        height={{ sm: '576px', md: '30rem' }}
+        bg={useColorModeValue('grey', 'gray.900')}
         boxShadow={'2xl'}
-        padding={4}>
-        <Flex 
-        flex={1} 
-        flexDir={"column"}
+        padding={2}
+        display='flex'
+        flexDir={{ base: 'column', md: 'row' }}
+        justifyContent='space-evenly'
+        alignItems='center'
+      >
+        <Flex
+          mt={'1rem'}
+          flex={1}
+          flexDir={"column"}
+          m={3}
         >
           <Image
             objectFit="cover"
             boxSize="100%"
             maxH={"12rem"}
+            minW='12rem'
             src={
               'https://assets.pokemon.com/static2/_ui/img/og-default-image.jpeg'
             }
-            m={3}
+            my={4}
             borderRadius={'5px'}
             overflow={'hidden'}
           />
@@ -47,92 +54,61 @@ function PokemonCardDetails() {
             src={
               'https://assets.pokemon.com/static2/_ui/img/og-default-image.jpeg'
             }
-            m={3}
+            my={2}
           />
         </Flex>
         <Stack
+          mt={'1rem'}
           flex={1}
           flexDirection="column"
           justifyContent="space-between"
           alignItems="center"
-          p={4}
+          p={2}
           pt={2}
+          backgroundColor='white'
+          borderRadius='12px'
+          minH={'520px'}
+        >
+          <Heading
+            fontSize={'2xl'}
+            fontFamily={'body'}
           >
-          <Heading fontSize={'2xl'} fontFamily={'body'}>
-            Pokemon Nome
+            Base Status
           </Heading>
-          <Text fontWeight={600} color={'gray.500'} size="sm" mb={4}>
-            @lindsey_jam3s
-          </Text>
           <Text
             textAlign={'center'}
             color={useColorModeValue('gray.700', 'gray.400')}
-            px={3}>
+            px={3}
+          >
             Actress, musician, songwriter and artist. PM for work inquires or
-            <Link href={'#'} color={'blue.400'}>
-              #tag
-            </Link>
             me in your posts
           </Text>
-          <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
-            <Badge
-              px={2}
-              py={1}
-              bg={useColorModeValue('gray.50', 'gray.800')}
-              fontWeight={'400'}>
-              #art
-            </Badge>
-            <Badge
-              px={2}
-              py={1}
-              bg={useColorModeValue('gray.50', 'gray.800')}
-              fontWeight={'400'}>
-              #photography
-            </Badge>
-            <Badge
-              px={2}
-              py={1}
-              bg={useColorModeValue('gray.50', 'gray.800')}
-              fontWeight={'400'}>
-              #music
-            </Badge>
-          </Stack>
-
-          <Stack
-            width={'100%'}
-            mt={'2rem'}
-            direction={'row'}
-            padding={2}
-            justifyContent={'space-between'}
-            alignItems={'center'}>
-            <Button
-              flex={1}
-              fontSize={'sm'}
-              rounded={'full'}
-              _focus={{
-                bg: 'gray.200',
-              }}>
-              Message
-            </Button>
-            <Button
-              flex={1}
-              fontSize={'sm'}
-              rounded={'full'}
-              bg={'blue.400'}
-              color={'white'}
-              boxShadow={
-                '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
-              }
-              _hover={{
-                bg: 'blue.500',
-              }}
-              _focus={{
-                bg: 'blue.500',
-              }}>
-              Follow
-            </Button>
-          </Stack>
         </Stack>
+        <Stack
+          mt={'1rem'}
+          flex={1}
+          flexDirection="column"
+          justifyContent="space-between"
+          alignItems="center"
+          minH={'520px'}
+          px={6}
+        >
+          <Heading fontSize={'2xl'} fontFamily={'body'}>
+            Pokemon Nome
+          </Heading>
+          <Text
+            textAlign={'center'}
+            color={useColorModeValue('gray.700', 'gray.400')}
+            px={3}
+            backgroundColor='white'
+            borderRadius='12px'
+            minH={'330px'}
+          >
+            Actress, musician, songwriter and artist. PM for work inquires or
+            me in your posts
+          </Text>
+        </Stack>
+
       </Stack>
     </Center>
   );

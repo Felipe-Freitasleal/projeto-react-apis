@@ -23,10 +23,26 @@ const Header = () => {
 
       default:
         return (
-          <>
-            <Button onClick={() => goToHomePage(navigate)} colorScheme='green'>Home</Button>
-            <Button onClick={() => goToPokedex(navigate)} colorScheme='green'>Pokedex</Button>
-          </>
+          <div
+            display='flex'
+            flexDir='row'
+            justifyContent='space-evenly'
+          >
+            <Button
+              onClick={() => goToHomePage(navigate)}
+              colorScheme='green'
+              m={1}
+            >
+              Home
+            </Button>
+            <Button
+              onClick={() => goToPokedex(navigate)}
+              colorScheme='green'
+              m={1}
+            >
+              Pokedex
+            </Button>
+          </div>
         );
     }
   }
