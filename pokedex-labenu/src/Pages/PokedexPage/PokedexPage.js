@@ -1,11 +1,12 @@
 import Header from "../../Components/Header/Header"
-import PokemonCard from "../../Components/PokemonCard/PokemonCard"
+import PokedexCard from "../../Components/PokedexCard/PokedexCard"
+
 
 const PokedexPage = () => {
   return (
     <div>
       <Header/>
-      <PokemonCard/>
+      <PokedexCard/>
     </div>
   )
 }

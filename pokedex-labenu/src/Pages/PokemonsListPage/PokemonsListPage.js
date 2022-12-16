@@ -7,7 +7,7 @@ const PokemonsListPage = () => {
   return (
     <div>
       <Header/>
-      <PokemonCard/>
+      <PokemonCard />
     </div>
   )
 }
