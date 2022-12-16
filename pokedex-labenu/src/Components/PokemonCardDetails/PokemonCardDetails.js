@@ -1,37 +1,35 @@
 import {
-  Badge,
-  Button,
   Center,
   Flex,
   Heading,
   Image,
-  Link,
   Stack,
   Text,
-  useColorModeValue,
+  useColorModeValue
 } from '@chakra-ui/react';
 
-function PokemonCardDetails() {
+function PokemonCardDetails(props) {
+
+
+
+
   return (
     <Center py={6}>
       <Stack
         borderWidth="1px"
         borderRadius="lg"
-        w={{ sm: '100%', md: '1040px' }}
-        height={{ sm: '576px', md: '30rem' }}
+        w={{ sm: '100%', md: '1240px' }}
+        height={{ sm: '1376px', md: '30rem' }}
         bg={useColorModeValue('grey', 'gray.900')}
         boxShadow={'2xl'}
-        padding={2}
+        padding={4}
         display='flex'
-        flexDir={{ base: 'column', md: 'row' }}
-        justifyContent='space-evenly'
+        flexDirection={{ base: 'column', md: 'row' }}
+        justifyContent={'space-evenly'}
         alignItems='center'
       >
         <Flex
-          mt={'1rem'}
-          flex={1}
-          flexDir={"column"}
-          m={3}
+          flexDirection={{ base: 'column', sm: 'row', md: 'column' }}
         >
           <Image
             objectFit="cover"
@@ -41,7 +39,7 @@ function PokemonCardDetails() {
             src={
               'https://assets.pokemon.com/static2/_ui/img/og-default-image.jpeg'
             }
-            my={4}
+            m={2}
             borderRadius={'5px'}
             overflow={'hidden'}
           />
@@ -54,9 +52,34 @@ function PokemonCardDetails() {
             src={
               'https://assets.pokemon.com/static2/_ui/img/og-default-image.jpeg'
             }
-            my={2}
+            m={2}
           />
         </Flex>
+        <Stack
+          mt={'1rem'}
+          flex={1}
+          flexDirection="column"
+          justifyContent="space-between"
+          alignItems="center"
+          minH={'520px'}
+          px={{ base: 0, md: 4 }}
+        >
+          <Heading fontSize={'3xl'} fontFamily={'body'} p={2}>
+            Pokemon Nome
+          </Heading>
+          <Text
+            textAlign={'center'}
+            color={useColorModeValue('gray.700', 'gray.400')}
+            px={{ base: 1, md: 3 }}
+            backgroundColor='white'
+            borderRadius='12px'
+            minH={'430px'}
+            p={2}
+          >
+            Actress, musician, songwriter and artist. PM for work inquires or
+            me in your posts
+          </Text>
+        </Stack>
         <Stack
           mt={'1rem'}
           flex={1}
@@ -84,31 +107,6 @@ function PokemonCardDetails() {
             me in your posts
           </Text>
         </Stack>
-        <Stack
-          mt={'1rem'}
-          flex={1}
-          flexDirection="column"
-          justifyContent="space-between"
-          alignItems="center"
-          minH={'520px'}
-          px={6}
-        >
-          <Heading fontSize={'2xl'} fontFamily={'body'}>
-            Pokemon Nome
-          </Heading>
-          <Text
-            textAlign={'center'}
-            color={useColorModeValue('gray.700', 'gray.400')}
-            px={3}
-            backgroundColor='white'
-            borderRadius='12px'
-            minH={'330px'}
-          >
-            Actress, musician, songwriter and artist. PM for work inquires or
-            me in your posts
-          </Text>
-        </Stack>
-
       </Stack>
     </Center>
   );
