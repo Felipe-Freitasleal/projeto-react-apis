@@ -7,11 +7,13 @@ import {
   Text,
   useColorModeValue
 } from '@chakra-ui/react';
+import { useContext } from 'react';
+import { PokemonContex } from '../../contexts/PokemonContex';
 
-function PokemonCardDetails(props) {
+function PokemonCardDetails() {
 
-
-
+  const context = useContext(PokemonContex)
+  const { pokemonDetalhes } = context
 
   return (
     <Center py={6}>
@@ -37,7 +39,7 @@ function PokemonCardDetails(props) {
             maxH={"12rem"}
             minW='12rem'
             src={
-              'https://assets.pokemon.com/static2/_ui/img/og-default-image.jpeg'
+              pokemonDetalhes?.data.sprites.front_default
             }
             m={2}
             borderRadius={'5px'}
@@ -50,7 +52,7 @@ function PokemonCardDetails(props) {
             borderRadius={'5px'}
             overflow={'hidden'}
             src={
-              'https://assets.pokemon.com/static2/_ui/img/og-default-image.jpeg'
+              pokemonDetalhes?.data.sprites.back_default
             }
             m={2}
           />
@@ -65,7 +67,7 @@ function PokemonCardDetails(props) {
           px={{ base: 0, md: 4 }}
         >
           <Heading fontSize={'3xl'} fontFamily={'body'} p={2}>
-            Pokemon Nome
+            {pokemonDetalhes?.data.name.toUpperCase()}
           </Heading>
           <Text
             textAlign={'center'}
