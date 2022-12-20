@@ -53,10 +53,13 @@ const Header = () => {
       flexDir={"column"}
       justifyContent={"space-evenly"}
       alignItems={"center"}
-      p={4}
+      p={1}
     >
-      <Img src="../../assets/image 1.jpg" alt="pokemon"/>
-      <Text fontSize='4xl' color='#fca120'>POKÉMONS</Text>
+      <Img
+        src="https://logosmarcas.net/wp-content/uploads/2020/05/Pokemon-Logo.png"
+        alt="pokemon"
+        maxH="120px"
+      />
       <Flex
         flexDir={"row"}
         justifyContent={"center"}
