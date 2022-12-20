@@ -6,7 +6,8 @@ import {
   Heading,
   Text,
   Button,
-  CardFooter
+  CardFooter,
+  Box
 } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
 import { goToDetails } from "../../Router/Coordinato"
@@ -71,6 +72,44 @@ const PokemonCard = (props) => {
     setListaNomesUrl(novaListaPokemons)
   }
 
+  const backgroundTipo = (tipo) => {
+    switch (tipo) {
+      case 'grass':
+        return '#70B873'
+      case 'poison':
+        return '#AD61AE'
+      case 'fire':
+        return '#F44900'
+      case 'flying':
+        return '#6892B0'
+      case 'water':
+        return '#33A4F5'
+      case 'bug':
+        return '#316520'
+      case 'normal':
+        return '#8A8A8A'
+    }
+  }
+
+  const backgroundCard = (tipo) => {
+    switch (tipo) {
+      case 'grass':
+        return '#729F92'
+      case 'poison':
+        return '#AD61AE'
+      case 'fire':
+        return '#EAAB7D'
+      case 'flying':
+        return '#6892B0'
+      case 'water':
+        return '#71C3FF'
+      case 'bug':
+        return '#76A866'
+      case 'normal':
+        return '#BF9762'
+    }
+  }
+
   return (
     <Card
       direction={{ base: 'column', sm: 'row' }}
@@ -83,10 +122,13 @@ const PokemonCard = (props) => {
       borderRadius='12px'
       m='16px'
       justifyContent={'center'}
-      backgroundImage='https://pngimg.com/uploads/pokeball/pokeball_PNG12.png'
+      alignItems='center'
+      backgroundImage='https://icon-library.com/images/pokemon-ball-icon/pokemon-ball-icon-16.jpg'
       backgroundSize={'contain'}
-      backgroundPosition={'center'}
+      backgroundPosition={'right'}
       backgroundRepeat={'no-repeat'}
+      backgroundColor={backgroundCard(infoPokemon?.data.types[0].type.name)}
+
     >
       <Stack
         justifyContent={'space-evenly'}
@@ -97,25 +139,32 @@ const PokemonCard = (props) => {
         <CardBody
           display={'flex'}
           flexDir="column"
-          justifyContent='space-evenly'
+          justifyContent='space-between'
           m={1}
           p={1}
           h='80px'
+          alignItems={{ base: "center", sm: "flex-start" }}
         >
+          <Text
+            color='white'
+          >
+            #{infoPokemon ? (infoPokemon.data.id) : ("loading")}
+          </Text>
           <Heading
             size='md'
-            m={1}
-            p={1}
+
+            color='white'
           >
             {infoPokemon ? (infoPokemon.data.name.toUpperCase()) : ("loading")}
           </Heading>
-          <Stack
+          <Box
             display='flex'
             flexDir="row"
-            maxW='200px'
+            maxW='100%'
             maxH='100%'
             alignItems='center'
-            p={1}
+            justifyContent={{ base: "center", sm: "flex-start" }}
+
           >
             {infoPokemon?.data.types.map((types) => {
               return (
@@ -124,22 +173,30 @@ const PokemonCard = (props) => {
                   border='1px solid grey'
                   borderRadius={'8px'}
                   maxW='80px'
+                  minW=' 80px'
                   maxH='31px'
-                  m={1}
+                  minH='31px'
+                  marginRight={1}
+                  marginTop={1}
+                  display='flex'
+                  alignItems='flex-end'
+                  justifyContent='center'
+                  backgroundColor={() => backgroundTipo(types.type.name)}
+                  color='white'
                 >
                   {types.type.name}
                 </Text>
               )
             })}
-          </Stack>
+          </Box>
         </CardBody>
         <CardFooter
           w='250px'
           justifyContent={'space-evenly'}
+          alignItems='center'
           display='flex'
           flexDir={{ base: 'column', sm: 'row' }}
           onClick={() => mandarParaDetalhes()}
-          m={0}
           p={1}
         >
           <Button
@@ -147,20 +204,23 @@ const PokemonCard = (props) => {
             colorScheme='green'
             w='146px'
             h='38px'
-            onClick={() => mandaParaPokedex()}
+            marginTop={1}
+            onClick={() => goToDetails(navigate)}
+            marginRight={1}
+
           >
-            Capturar
+            Detalhes
           </Button>
           <Button
             variant='solid'
-            // colorScheme='green'
-            bg='transparent'
+            colorScheme='blue'
             w='146px'
             h='38px'
-            marginTop={{ base: 1, sm: 0 }}
-            onClick={() => goToDetails(navigate)}
+            onClick={() => mandaParaPokedex()}
+            marginRight={1}
+            marginTop={1}
           >
-            Detalhes
+            Capturar
           </Button>
         </CardFooter>
       </Stack>
