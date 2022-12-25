@@ -15,6 +15,7 @@ import axios from "axios"
 import { useContext, useEffect, useState } from "react"
 import { PokemonContex } from "../../contexts/PokemonContex"
 import swal from "sweetalert"
+import pokebolaTransparente from "../../assets/pokebola.png"
 
 const PokemonCard = (props) => {
 
@@ -123,8 +124,8 @@ const PokemonCard = (props) => {
       m='16px'
       justifyContent={'center'}
       alignItems='center'
-      backgroundImage='https://icon-library.com/images/pokemon-ball-icon/pokemon-ball-icon-16.jpg'
-      backgroundSize={'contain'}
+      backgroundImage={pokebolaTransparente}
+      backgroundSize={'auto'}
       backgroundPosition={'right'}
       backgroundRepeat={'no-repeat'}
       backgroundColor={backgroundCard(infoPokemon?.data.types[0].type.name)}

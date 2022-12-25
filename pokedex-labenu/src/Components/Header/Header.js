@@ -1,6 +1,7 @@
 import { Button, Stack, Flex, Img, Text } from "@chakra-ui/react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { goToHomePage, goToPokedex } from "../../Router/Coordinato"
+import pokemonLogo  from "../../assets/Pokemon-Logo.png"
 
 const Header = () => {
 
@@ -56,7 +57,8 @@ const Header = () => {
       p={1}
     >
       <Img
-        src="https://logosmarcas.net/wp-content/uploads/2020/05/Pokemon-Logo.png"
+        // src="https://logosmarcas.net/wp-content/uploads/2020/05/Pokemon-Logo.png"
+        src={pokemonLogo}
         alt="pokemon"
         maxH="120px"
       />
