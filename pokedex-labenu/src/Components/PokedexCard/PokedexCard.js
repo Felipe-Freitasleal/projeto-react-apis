@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom"
 import { PokemonContex } from "../../contexts/PokemonContex"
 import { goToDetails } from "../../Router/Coordinato"
 import swal from "sweetalert"
+import pokebolaTransparente from "../../assets/pokebola.png"
 
 const PokedexCard = (props) => {
 
@@ -52,6 +53,44 @@ const PokedexCard = (props) => {
     setListaPokedex(novaPokedex)
   }
 
+  const backgroundCard = (tipo) => {
+    switch (tipo) {
+      case 'grass':
+        return '#729F92'
+      case 'poison':
+        return '#AD61AE'
+      case 'fire':
+        return '#EAAB7D'
+      case 'flying':
+        return '#6892B0'
+      case 'water':
+        return '#71C3FF'
+      case 'bug':
+        return '#76A866'
+      case 'normal':
+        return '#BF9762'
+    }
+  }
+
+  const backgroundTipo = (tipo) => {
+    switch (tipo) {
+      case 'grass':
+        return '#70B873'
+      case 'poison':
+        return '#AD61AE'
+      case 'fire':
+        return '#F44900'
+      case 'flying':
+        return '#6892B0'
+      case 'water':
+        return '#33A4F5'
+      case 'bug':
+        return '#316520'
+      case 'normal':
+        return '#8A8A8A'
+    }
+  }
+
   return (
     <Card
       direction={{ base: 'column', sm: 'row' }}
@@ -65,11 +104,13 @@ const PokedexCard = (props) => {
       m='16px'
       justifyContent={'center'}
       alignItems='center'
-      backgroundImage='https://pngimg.com/uploads/pokeball/pokeball_PNG12.png'
-      backgroundSize={'contain'}
-      backgroundPosition={'center'}
+      // backgroundImage='https://icon-library.com/images/pokemon-ball-icon/pokemon-ball-icon-16.jpg'
+      backgroundImage={pokebolaTransparente}
+      backgroundSize={'auto'}
+      backgroundPosition={'right'}
       backgroundRepeat={'no-repeat'}
-      backgroundColor="#B0C4DE"
+      backgroundColor={backgroundCard(pokemon?.data.types[0].type.name)}
+
     >
       <Stack
         justifyContent={'space-evenly'}
@@ -80,17 +121,21 @@ const PokedexCard = (props) => {
         <CardBody
           display={'flex'}
           flexDir="column"
-          justifyContent='space-evenly'
+          justifyContent='space-between'
           m={1}
           p={1}
           h='80px'
           alignItems={{ base: "center", sm: "flex-start" }}
         >
+          <Text
+            color='white'
+          >
+            #{pokemon ? (pokemon.data.id) : ("loading")}
+          </Text>
           <Heading
             size='md'
-            m={1}
-            p={1}
 
+            color='white'
           >
             {pokemon ? (pokemon.data.name.toUpperCase()) : ("loading")}
           </Heading>
@@ -101,8 +146,7 @@ const PokedexCard = (props) => {
             maxH='100%'
             alignItems='center'
             justifyContent={{ base: "center", sm: "flex-start" }}
-            // {{ base: "center", sm: "flex-start"}}
-            p={1}
+
           >
             {pokemon?.data.types.map((types) => {
               return (
@@ -114,10 +158,13 @@ const PokedexCard = (props) => {
                   minW=' 80px'
                   maxH='31px'
                   minH='31px'
-                  m={1}
+                  marginRight={1}
+                  marginTop={1}
                   display='flex'
                   alignItems='flex-end'
                   justifyContent='center'
+                  backgroundColor={() => backgroundTipo(types.type.name)}
+                  color='white'
                 >
                   {types.type.name}
                 </Text>
@@ -139,22 +186,23 @@ const PokedexCard = (props) => {
             colorScheme='green'
             w='146px'
             h='38px'
-            mx={1}
-            onClick={() => excluirDaPokedex()}
+            marginTop={1}
+            onClick={() => goToDetails(navigate)}
+            marginRight={1}
+
           >
-            Excluir
+            Detalhes
           </Button>
           <Button
             variant='solid'
-            colorScheme='blue'
-            // bg='transparent'
+            colorScheme='red'
             w='146px'
             h='38px'
-            marginTop={{ base: 1, sm: 0 }}
-            onClick={() => goToDetails(navigate)}
-            mx={1}
+            onClick={() => excluirDaPokedex()}
+            marginRight={1}
+            marginTop={1}
           >
-            Detalhes
+            Excluir
           </Button>
         </CardFooter>
       </Stack>
