@@ -11,7 +11,8 @@ function App() {
   const [listaPokedex, setListaPokedex] = useState([])
   const [listaNomesUrl, setListaNomesUrl] = useState([]) // essa lista de pokemons aopenas guarda o urle nome do pokemon.
   console.log(`Lista com nome e url: `, listaNomesUrl)
-  console.log('Lista da pokedex', listaPokedex)
+  console.log('Lista da pokedex: ', listaPokedex)
+  console.log('Detalhes dos pokémon: ', pokemonDetalhes)
 
   useEffect(() => {
     pegarNomesPokemons()
