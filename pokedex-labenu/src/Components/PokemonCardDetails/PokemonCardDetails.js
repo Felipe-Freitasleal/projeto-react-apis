@@ -7,24 +7,29 @@ import {
   Text,
   useColorModeValue,
   Box,
-  Progress
+  Progress,
+  Button
 } from '@chakra-ui/react'
 import { useContext, useEffect, useState } from 'react'
 import { PokemonContex } from '../../contexts/PokemonContex'
 import pokebolaBackGround from '../../assets/pokebola.png'
+import swal from "sweetalert"
 
 function PokemonCardDetails() {
 
   const context = useContext(PokemonContex)
-  const { pokemonDetalhes } = context
+  const { pokemonDetalhes,
+    listaPokedex,
+    listaNomesUrl,
+    setListaPokedex,
+    setListaNomesUrl
+  } = context
   console.log(pokemonDetalhes)
 
   const [listaAtaques, setListaAtaques] = useState([])
-
   useEffect(() => {
     renderizarAtaques()
   }, [])
-
   const renderizarAtaques = () => {
     const primeirosAtaques = pokemonDetalhes?.data.moves.slice(0, 8)
     console.log(primeirosAtaques)
@@ -69,6 +74,69 @@ function PokemonCardDetails() {
     }
   }
 
+  const mandaParaPokedex = () => {
+    //adicona o pokémon a lista da pokedex
+    const novaPokedex = [...listaPokedex, pokemonDetalhes]
+    setListaPokedex(novaPokedex)
+    //gera um alert avisando que o pokémon foi adicionado com sucesso.
+    swal({
+      title: "Capturado!",
+      text: "Seu Pokémon foi adicionado a Pokedex!",
+      icon: "success",
+    });
+    //exclui da lista de pokémons o pokémon que foi clicado.
+    const novaListaPokemons = [...listaNomesUrl]
+    const acharPokemon = novaListaPokemons.findIndex((pokemonDaLista) => pokemonDaLista.name === pokemonDetalhes.data.name)
+    console.log('INDICE DO POKÉMON EXCLUIDO', acharPokemon)
+    novaListaPokemons.splice(acharPokemon, 1)
+    console.log('NOVA LISTA', novaListaPokemons)
+    setListaNomesUrl(novaListaPokemons)
+  }
+
+  const excluirDaPokedex = () => {
+    //copia a liksta de nomes de pokémons e adiciona o pokémon que será excluido da pokedex.
+    const novaListaPokemons = [{ name: pokemonDetalhes.data.name }, ...listaNomesUrl]
+    setListaNomesUrl(novaListaPokemons)
+
+    swal({
+      title: "Excluído!",
+      text: "O pokémon foi removido da pokedex!",
+      icon: "success",
+    });
+
+    //achar o pokémon da pokedex na copia da lista da pokedex e excluir, depois substituir a antiga lista pela cópia.
+    const novaPokedex = [...listaPokedex]
+    const acharIndex = novaPokedex.findIndex((item) => item.data.name === pokemonDetalhes.data.name)
+    novaPokedex.splice(acharIndex, 1)
+    setListaPokedex(novaPokedex)
+  }
+
+  const botaoExcluirCapturar = () => {
+    for (let i = 0; i < listaNomesUrl.length; i++) {
+      if (pokemonDetalhes?.data.name == listaNomesUrl[i].name) {
+        return (
+          <Button
+            onClick={() => mandaParaPokedex()}
+          >
+            Capturar!
+          </Button>
+        )
+      }
+    }
+    for (let i = 0; i < listaPokedex.length; i++) {
+      if (pokemonDetalhes?.data.name === listaPokedex[i].data.name) {
+        return (
+          <Button
+            colorScheme='red'
+            onClick={() => excluirDaPokedex()}
+          >
+            Excluir da Pokedex
+          </Button>
+        )
+      }
+    }
+  }
+
   return (
     <Center
       px={6}
@@ -79,15 +147,24 @@ function PokemonCardDetails() {
       alignItems='center'
       justifyContent='center'
     >
-      <Heading
-        fontFamily={'body'}
-        fontSize={'48px'}
-        fontWeight='bold'
-        color='white'
-        py={1}
+      <Box
+        display='flex'
+        flexDir={{ base: 'column', md: 'row' }}
+        justifyContent='space-between'
+        w={{ sm: '100%', md: '1200px' }}
+        m={1}
       >
-        DETALHES
-      </Heading>
+        <Heading
+          fontFamily={'body'}
+          fontSize={'48px'}
+          fontWeight='bold'
+          color='white'
+          py={1}
+        >
+          DETALHES
+        </Heading>
+        {botaoExcluirCapturar()}
+      </Box>
       <Stack
         borderRadius='37.89px'
         boxShadow={'2xl'}
@@ -109,7 +186,7 @@ function PokemonCardDetails() {
           maxH={'610px'}
           minH={'610px'}
           justifyContent='space-between'
-          m={{ base: '24px', sm: '0px'}}
+          m={{ base: '24px', sm: '0px' }}
         >
           <Image
             objectFit="cover"
@@ -150,8 +227,8 @@ function PokemonCardDetails() {
           borderRadius='12px'
           maxH={'613px'}
           minH={'613px'}
-          minW={{base: '300px', md: '343px'}}
-          maxW={{base: '300px', md: '343px'}}
+          minW={{ base: '300px', md: '343px' }}
+          maxW={{ base: '300px', md: '343px' }}
         >
           <Heading
             fontSize={'2xl'}

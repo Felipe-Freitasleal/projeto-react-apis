@@ -55,7 +55,7 @@ const PokemonCard = (props) => {
   }
 
   const mandaParaPokedex = () => {
-    //adicona o pokémon a lista da pkédex
+    //adicona o pokémon a lista da pokedex
     const novaPokedex = [...listaPokedex, infoPokemon]
     setListaPokedex(novaPokedex)
     //gera um alert avisando que o pokémon foi adicionado com sucesso.
