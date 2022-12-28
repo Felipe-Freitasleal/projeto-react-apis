@@ -61,7 +61,7 @@ function PokemonCardDetails() {
       case 'flying':
         return '#6892B0'
       case 'water':
-        return '#71C3FF'
+        return '#004170'
       case 'bug':
         return '#76A866'
       case 'normal':
@@ -81,7 +81,7 @@ function PokemonCardDetails() {
     >
       <Heading
         fontFamily={'body'}
-        fontSize={'5xl'}
+        fontSize={'48px'}
         fontWeight='bold'
         color='white'
         py={1}
@@ -89,7 +89,6 @@ function PokemonCardDetails() {
         DETALHES
       </Heading>
       <Stack
-        borderWidth="1px"
         borderRadius='37.89px'
         boxShadow={'2xl'}
         w={{ sm: '100%', md: '1200px' }}
@@ -235,7 +234,6 @@ function PokemonCardDetails() {
               return (
                 <Text
                   key={types.type.name}
-                  border='1px solid grey'
                   borderRadius={'8px'}
                   maxW='80px'
                   minW=' 80px'

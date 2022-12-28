@@ -15,11 +15,11 @@ const Header = () => {
     switch (local.pathname) {
       case '/':
         return (
-          <Button onClick={() => goToPokedex(navigate)} colorScheme='green'>Pokedex</Button>
+          <Button onClick={() => goToPokedex(navigate)} colorScheme='blue'>Pokedex</Button>
         );
       case '/pokedex':
         return (
-          <Button onClick={() => goToHomePage(navigate)} colorScheme='green'>Home</Button>
+          <Button onClick={() => goToHomePage(navigate)} colorScheme='blue'>Home</Button>
         );
 
       default:
@@ -31,14 +31,14 @@ const Header = () => {
           >
             <Button
               onClick={() => goToHomePage(navigate)}
-              colorScheme='green'
+              colorScheme='blue'
               m={1}
             >
               Home
             </Button>
             <Button
               onClick={() => goToPokedex(navigate)}
-              colorScheme='green'
+              colorScheme='blue'
               m={1}
             >
               Pokedex

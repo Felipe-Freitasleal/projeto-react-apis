@@ -2,7 +2,7 @@ import { useContext } from "react"
 import Header from "../../Components/Header/Header"
 import PokedexCard from "../../Components/PokedexCard/PokedexCard"
 import { PokemonContex } from "../../contexts/PokemonContex"
-import { Div } from "./StyledPokedexPage"
+import { Div, Pokemons } from "./StyledPokedexPage"
 
 const PokedexPage = () => {
 
@@ -13,9 +13,16 @@ const PokedexPage = () => {
     <>
       <Header />
       <Div>
-        {listaPokedex?.map((pokemon) => {
-          return <PokedexCard key={pokemon.data.id} pokemon={pokemon} />
-        })}
+        <Pokemons>
+          <header>
+            MEUS POKÉMONS
+          </header>
+          <div className="pokemonsPokedex">
+            {listaPokedex?.map((pokemon) => {
+              return <PokedexCard key={pokemon.data.id} pokemon={pokemon} />
+            })}
+          </div>
+        </Pokemons>
       </Div>
     </>
   )

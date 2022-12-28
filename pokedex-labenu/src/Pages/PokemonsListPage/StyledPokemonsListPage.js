@@ -2,8 +2,27 @@ import styled from "styled-components"
 
 export const Div = styled.div`
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color:#4d526c;
+    flex-direction: column;
+    align-items: center;
+    background-color:grey;
+`
+export const Pokemons = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 1400px;
 
+    header{
+            color: white;
+            padding: 16px;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+    .listaPokemons{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 `
