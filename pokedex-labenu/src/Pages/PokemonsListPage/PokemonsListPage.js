@@ -1,8 +1,9 @@
+import { Flex } from "@chakra-ui/react"
 import { useContext } from "react"
 import Header from "../../Components/Header/Header"
 import PokemonCard from "../../Components/PokemonCard/PokemonCard"
 import { PokemonContex } from "../../contexts/PokemonContex"
-import { Div } from "./StyledPokemonsListPage"
+import { Div, Pokemons } from "./StyledPokemonsListPage"
 
 
 const PokemonsListPage = () => {
@@ -16,9 +17,16 @@ const PokemonsListPage = () => {
     <>
       <Header />
       <Div>
-        {listaNomesUrl.map((pokemon) => {
-          return <PokemonCard key={pokemon.name} pokemon={pokemon} />
-        })}
+        <Pokemons>
+          <header>
+            TODOS OS POKÉMONS
+          </header>
+          <div className="listaPokemons">
+            {listaNomesUrl.map((pokemon) => {
+              return <PokemonCard key={pokemon.name} pokemon={pokemon} />
+            })}
+          </div>
+        </Pokemons>
       </Div>
     </>
   )

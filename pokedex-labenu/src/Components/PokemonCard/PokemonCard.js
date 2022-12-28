@@ -103,7 +103,7 @@ const PokemonCard = (props) => {
       case 'flying':
         return '#6892B0'
       case 'water':
-        return '#71C3FF'
+        return '#004170'
       case 'bug':
         return '#76A866'
       case 'normal':
@@ -115,13 +115,12 @@ const PokemonCard = (props) => {
     <Card
       direction={{ base: 'column', sm: 'row' }}
       overflow='hidden'
-      variant='outline'
       minW={{ base: '100%', sm: '440px' }}
       maxW={{ base: '100%', sm: '440px' }}
       minH={{ base: '440px', sm: '210px' }}
       maxH={{ base: '440px', sm: '210px' }}
       borderRadius='12px'
-      m='16px'
+      m='12px'
       justifyContent={'center'}
       alignItems='center'
       backgroundImage={pokebolaTransparente}
@@ -171,7 +170,6 @@ const PokemonCard = (props) => {
               return (
                 <Text
                   key={types.type.name}
-                  border='1px solid grey'
                   borderRadius={'8px'}
                   maxW='80px'
                   minW=' 80px'
@@ -213,13 +211,18 @@ const PokemonCard = (props) => {
             Detalhes
           </Button>
           <Button
-            variant='solid'
-            colorScheme='blue'
+            bg='white'
+            color='black'
             w='146px'
             h='38px'
             onClick={() => mandaParaPokedex()}
             marginRight={1}
             marginTop={1}
+            hover={
+              {
+                backgroundColor: "blue"
+              }
+            }
           >
             Capturar
           </Button>

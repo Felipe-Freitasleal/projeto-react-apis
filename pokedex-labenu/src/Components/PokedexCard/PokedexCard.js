@@ -64,7 +64,7 @@ const PokedexCard = (props) => {
       case 'flying':
         return '#6892B0'
       case 'water':
-        return '#71C3FF'
+        return '#004170'
       case 'bug':
         return '#76A866'
       case 'normal':
@@ -95,22 +95,19 @@ const PokedexCard = (props) => {
     <Card
       direction={{ base: 'column', sm: 'row' }}
       overflow='hidden'
-      variant='outline'
       minW={{ base: '100%', sm: '440px' }}
       maxW={{ base: '100%', sm: '440px' }}
       minH={{ base: '440px', sm: '210px' }}
       maxH={{ base: '440px', sm: '210px' }}
       borderRadius='12px'
-      m='16px'
+      m='12px'
       justifyContent={'center'}
       alignItems='center'
-      // backgroundImage='https://icon-library.com/images/pokemon-ball-icon/pokemon-ball-icon-16.jpg'
       backgroundImage={pokebolaTransparente}
       backgroundSize={'auto'}
       backgroundPosition={'right'}
       backgroundRepeat={'no-repeat'}
       backgroundColor={backgroundCard(pokemon?.data.types[0].type.name)}
-
     >
       <Stack
         justifyContent={'space-evenly'}
@@ -152,7 +149,6 @@ const PokedexCard = (props) => {
               return (
                 <Text
                   key={types.type.name}
-                  border='1px solid grey'
                   borderRadius={'8px'}
                   maxW='80px'
                   minW=' 80px'

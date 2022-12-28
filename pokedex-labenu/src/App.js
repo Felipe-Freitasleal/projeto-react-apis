@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Router from "./Router/Router";
 import axios from "axios"
 import { PokemonContex } from "./contexts/PokemonContex";
+import { GlobalStyle } from "./GlobalStyle";
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
     }
   }
 
-  const context ={
+  const context = {
     listaNomesUrl: listaNomesUrl,
     setListaNomesUrl: setListaNomesUrl,
     listaPokedex: listaPokedex,
@@ -37,11 +38,12 @@ function App() {
 
   return (
 
-    <ChakraProvider>
-      <PokemonContex.Provider value={context}>
+    <PokemonContex.Provider value={context}>
+      <ChakraProvider>
+        <GlobalStyle />
         <Router />
-      </PokemonContex.Provider>
-    </ChakraProvider>
+      </ChakraProvider>
+    </PokemonContex.Provider>
 
   );
 }
