@@ -15,6 +15,7 @@ import { PokemonContex } from "../../contexts/PokemonContex"
 import { goToDetails } from "../../Router/Coordinato"
 import swal from "sweetalert"
 import pokebolaTransparente from "../../assets/pokebola.png"
+import { backgroundCard, backgroundTipo } from "../../utilitys/backgroundColor"
 
 const PokedexCard = (props) => {
 
@@ -53,43 +54,6 @@ const PokedexCard = (props) => {
     setListaPokedex(novaPokedex)
   }
 
-  const backgroundCard = (tipo) => {
-    switch (tipo) {
-      case 'grass':
-        return '#729F92'
-      case 'poison':
-        return '#AD61AE'
-      case 'fire':
-        return '#EAAB7D'
-      case 'flying':
-        return '#6892B0'
-      case 'water':
-        return '#004170'
-      case 'bug':
-        return '#76A866'
-      case 'normal':
-        return '#BF9762'
-    }
-  }
-
-  const backgroundTipo = (tipo) => {
-    switch (tipo) {
-      case 'grass':
-        return '#70B873'
-      case 'poison':
-        return '#AD61AE'
-      case 'fire':
-        return '#F44900'
-      case 'flying':
-        return '#6892B0'
-      case 'water':
-        return '#33A4F5'
-      case 'bug':
-        return '#316520'
-      case 'normal':
-        return '#8A8A8A'
-    }
-  }
 
   return (
     <Card
@@ -211,7 +175,7 @@ const PokedexCard = (props) => {
         minW={{ base: '220px', sm: '193px' }}
         maxH={{ base: '220px', sm: '193px' }}
         minH={{ base: '220px', sm: '193px' }}
-        src={pokemon?.data.sprites.front_default}
+        src={pokemon?.data.sprites.other['official-artwork'].front_default}
         alt='Pokemon image'
         alignSelf={{ base: 'center', sm: 'flex-start' }}
       />
