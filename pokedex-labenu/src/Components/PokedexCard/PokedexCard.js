@@ -59,8 +59,8 @@ const PokedexCard = (props) => {
     <Card
       direction={{ base: 'column', sm: 'row' }}
       overflow='hidden'
-      minW={{ base: '100%', sm: '440px' }}
-      maxW={{ base: '100%', sm: '440px' }}
+      minW={{ base: '330', sm: '440px' }}
+      maxW={{ base: '330', sm: '440px' }}
       minH={{ base: '440px', sm: '210px' }}
       maxH={{ base: '440px', sm: '210px' }}
       borderRadius='12px'
@@ -69,7 +69,7 @@ const PokedexCard = (props) => {
       alignItems='center'
       backgroundImage={pokebolaTransparente}
       backgroundSize={'auto'}
-      backgroundPosition={'right'}
+      backgroundPosition={{ base: 'center', sm: 'right' }}
       backgroundRepeat={'no-repeat'}
       backgroundColor={backgroundCard(pokemon?.data.types[0].type.name)}
     >

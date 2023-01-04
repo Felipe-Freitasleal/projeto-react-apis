@@ -127,9 +127,9 @@ function PokemonCardDetails() {
       <Stack
         borderRadius='37.89px'
         boxShadow={'2xl'}
-        w={{ sm: '100%', md: '1200px' }}
+        w={{ sm: '300px', md: '1200px' }}
         height={{ sm: '1376px', sm: '1650px', md: '663px' }}
-        p=' 32px'
+        p={{ sm: '0', md: '32px' }}
         display='flex'
         flexDirection={{ base: 'column-reverse', md: 'row' }}
         justifyContent={{ base: 'space-between', sm: 'flex-end', md: 'space-between' }}
@@ -310,7 +310,7 @@ function PokemonCardDetails() {
               display='flex'
               flexWrap='wrap'
               flexDir='row'
-              justifyContent='flex-start'
+              justifyContent='center'
             >
               {listaAtaques?.map((ataque) => {
                 return (
