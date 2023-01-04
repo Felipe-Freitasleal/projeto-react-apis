@@ -25,7 +25,6 @@ function PokemonCardDetails() {
     setListaPokedex,
     setListaNomesUrl
   } = context
-  console.log(pokemonDetalhes)
 
   const [listaAtaques, setListaAtaques] = useState([])
   useEffect(() => {
@@ -33,7 +32,6 @@ function PokemonCardDetails() {
   }, [])
   const renderizarAtaques = () => {
     const primeirosAtaques = pokemonDetalhes?.data.moves.slice(0, 8)
-    console.log(primeirosAtaques)
     setListaAtaques(primeirosAtaques)
   }
 
@@ -50,9 +48,7 @@ function PokemonCardDetails() {
     //exclui da lista de pokémons o pokémon que foi clicado.
     const novaListaPokemons = [...listaNomesUrl]
     const acharPokemon = novaListaPokemons.findIndex((pokemonDaLista) => pokemonDaLista.name === pokemonDetalhes.data.name)
-    console.log('INDICE DO POKÉMON EXCLUIDO', acharPokemon)
     novaListaPokemons.splice(acharPokemon, 1)
-    console.log('NOVA LISTA', novaListaPokemons)
     setListaNomesUrl(novaListaPokemons)
   }
 
@@ -282,7 +278,7 @@ function PokemonCardDetails() {
                   marginRight={1}
                   marginTop={1}
                   display='flex'
-                  alignItems='flex-end'
+                  alignItems='center'
                   justifyContent='center'
                   backgroundColor={() => backgroundTipo(types.type.name)}
                   color='white'
@@ -328,7 +324,7 @@ function PokemonCardDetails() {
                     minH='31px'
                     m={1}
                     display='flex'
-                    alignItems='flex-end'
+                    alignItems='center'
                     justifyContent='center'
                   >
                     {ataque.move.name}

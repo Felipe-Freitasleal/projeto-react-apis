@@ -64,7 +64,7 @@ const PokedexCard = (props) => {
       minH={{ base: '440px', sm: '210px' }}
       maxH={{ base: '440px', sm: '210px' }}
       borderRadius='12px'
-      m='12px'
+      m='8px'
       justifyContent={'center'}
       alignItems='center'
       backgroundImage={pokebolaTransparente}
@@ -121,7 +121,7 @@ const PokedexCard = (props) => {
                   marginRight={1}
                   marginTop={1}
                   display='flex'
-                  alignItems='flex-end'
+                  alignItems='center'
                   justifyContent='center'
                   backgroundColor={() => backgroundTipo(types.type.name)}
                   color='white'

@@ -21,12 +21,10 @@ import { backgroundCard, backgroundTipo } from "../../utilitys/backgroundColor"
 const PokemonCard = (props) => {
 
   const { pokemon } = props
-  // console.log("POKEMON DO POKECARD", pokemon)
 
   const navigate = useNavigate()
 
   const [infoPokemon, setInfoPokemon] = useState()
-  // console.log(infoPokemon)
 
   const context = useContext(PokemonContex)
   const {
@@ -44,7 +42,6 @@ const PokemonCard = (props) => {
   const pegarInfoPokemons = async () => {
     try {
       const resposta = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}/`)
-      // console.log("RESPOSTA DA POKECARD", resposta)
       setInfoPokemon(resposta)
     } catch (error) {
       console.log(error)
@@ -68,9 +65,7 @@ const PokemonCard = (props) => {
     //exclui da lista de pokémons o pokémon que foi clicado.
     const novaListaPokemons = [...listaNomesUrl]
     const acharPokemon = novaListaPokemons.findIndex((pokemonDaLista) => pokemonDaLista.name === pokemon.name)
-    console.log('INDICE DO POKÉMON EXCLUIDO', acharPokemon)
     novaListaPokemons.splice(acharPokemon, 1)
-    console.log('NOVA LISTA', novaListaPokemons)
     setListaNomesUrl(novaListaPokemons)
   }
 
@@ -83,7 +78,7 @@ const PokemonCard = (props) => {
       minH={{ base: '440px', sm: '210px' }}
       maxH={{ base: '440px', sm: '210px' }}
       borderRadius='12px'
-      m='12px'
+      m='8px'
       justifyContent={'center'}
       alignItems='center'
       backgroundImage={pokebolaTransparente}
@@ -141,7 +136,7 @@ const PokemonCard = (props) => {
                   marginRight={1}
                   marginTop={1}
                   display='flex'
-                  alignItems='flex-end'
+                  alignItems='center'
                   justifyContent='center'
                   backgroundColor={backgroundTipo(types.type.name)}
                   color='white'
