@@ -9,8 +9,9 @@ export const Div = styled.div`
 export const Pokemons = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     max-width: 1400px;
+    min-width: 1350px;
 
     header{
             color: white;

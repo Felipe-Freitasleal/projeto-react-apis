@@ -10,8 +10,6 @@ const PokemonsListPage = () => {
 
   const context = useContext(PokemonContex)
   const { listaNomesUrl } = context
-  console.log('lista de pokemons na homepage: ', listaNomesUrl)
-
 
   return (
     <>
