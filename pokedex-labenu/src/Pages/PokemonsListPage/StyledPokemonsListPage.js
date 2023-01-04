@@ -5,19 +5,22 @@ export const Div = styled.div`
     flex-direction: column;
     align-items: center;
     background-color:grey;
+    min-height: 76vh;
 `
 export const Pokemons = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     max-width: 1400px;
-    min-width: 1350px;
+    min-width: 330px;
 
     header{
             color: white;
             padding: 16px;
             font-size: 48px;
             font-weight: bold;
+            text-align: center;
+            align-self: center;
         }
 
     .listaPokemons{
