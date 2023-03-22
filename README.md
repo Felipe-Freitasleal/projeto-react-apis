@@ -8,7 +8,7 @@ Uma pokédex é básicamente um catálogo de pokémons, e a partir da interaçã
 \
 Quando capturado, o pokémon estará na página "Meus Pokémons", não estando mais acessível pela página principal, entretanto,  o usuário pode acessar as informações do pokémon capturado nesta página e pode excluí-lo, assim o pokémon retorna à primeira página.
 
-## **Tecnologias utilizada**
+## **Tecnologias utilizadaS**
 
  - React
  - Chakra UI
